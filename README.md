@@ -1,5 +1,7 @@
 # Concourse Dgoss-in-Docker
 
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tomreeb/concourse-dgossind)
+
 Optimized for use with [Concourse CI](http://concourse.ci/).
 
 The image is Alpine based, and includes [Dgoss](https://github.com/aelsabbahy/goss/tree/master/extras/dgoss), Docker, Docker Compose, and Docker Squash, as well as Bash.
