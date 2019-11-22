@@ -1,6 +1,6 @@
-# ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tomreeb/concourse-dgossind)
+# Concourse Dgoss-in-Docker
 
-## Concourse Dgoss-in-Docker
+![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/tomreeb/concourse-dgossind)
 
 Optimized for use with [Concourse CI](http://concourse.ci/).
 
@@ -11,7 +11,7 @@ Image published to Docker Hub: [tomreeb/concourse-dgossind](https://hub.docker.c
 Forked from [karlkfi/concourse-dcind](https://github.com/karlkfi/concourse-dcind)
 Inspired by [meAmidos/dcind](https://github.com/meAmidos/dcind),  [concourse/docker-image-resource](https://github.com/concourse/docker-image-resource/blob/master/assets/common.sh), and [mesosphere/mesos-slave-dind](https://github.com/mesosphere/mesos-slave-dind).
 
-### Features
+## Features
 
 This image...
 
@@ -23,13 +23,13 @@ This image...
 - Passes through `--garden-mtu` from the parent Gardian container if `--mtu` is not specified in `DOCKER_OPTS`.
 - Sets `--data-root /scratch/docker` to bypass the graph filesystem if `--data-root` is not specified in `DOCKER_OPTS`.
 
-### Build
+## Build
 
 ```bash
 make build -e VERSION=0.1
 ```
 
-### Example
+## Example
 
 Here is an example of a Concourse [job](http://concourse.ci/concepts.html) that uses ```tomreeb/concourse-dgossind``` image to run a dgoss test on a freshly built container.
 
