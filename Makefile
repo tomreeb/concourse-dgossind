@@ -1,10 +1,10 @@
 NS ?= tomreeb
-VERSION ?= latest
+VERSION ?= $(shell cat version.txt)
 IMAGE_NAME ?= concourse-dgossind
 CONTAINER_NAME ?= concourse-dgossind
 CONTAINER_INSTANCE ?= default
 
-.PHONY: build push shell run start stop rm release
+.PHONY: build push shell run start stop rm beta-release release
 
 build: Dockerfile
 	docker build -t $(NS)/$(IMAGE_NAME)\:$(VERSION) -f Dockerfile .
@@ -33,7 +33,14 @@ stop:
 rm:
 	docker rm $(CONTAINER_NAME)-$(CONTAINER_INSTANCE)
 
+beta-release: build
+	docker tag $(APP):$(VERSION) $(REMOTE_TAG)-BETA
+	docker push $(REMOTE_TAG)-BETA
+
 release: lint build test
-	make push -e VERSION=$(VERSION)
+	docker tag $(APP):$(VERSION) $(REMOTE_TAG)
+	docker tag $(APP):$(VERSION) $(LATEST_TAG)
+	docker push $(REMOTE_TAG)
+	docker push $(LATEST_TAG)
     
 default: build
