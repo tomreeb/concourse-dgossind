@@ -1,14 +1,14 @@
-FROM alpine:3.7
+FROM alpine:3.14
 
 LABEL maintainer="Tom Reeb <reebzor@gmail.com>" \
       name="tomreeb/concourse-dgossind" \
-      version="0.1"
+      version="0.2"
 
 ENV DOCKER_CHANNEL=stable \
-    DOCKER_VERSION=17.12.1-ce \
-    DOCKER_COMPOSE_VERSION=1.19.0 \
+    DOCKER_VERSION=20.10.9 \
+    DOCKER_COMPOSE_VERSION=1.29.2 \
     DOCKER_SQUASH=0.2.0 \
-    GOSS_VERSION=0.3.6 \
+    GOSS_VERSION=0.3.16 \
     GOSS_FILES_STRATEGY=cp \
     GOSS_PATH=/bin/goss \
     DGOSS_PATH=/bin/dgoss
